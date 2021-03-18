@@ -1,0 +1,3 @@
+<x-admin-layout>
+    Admin area...
+</x-admin-layout>
