@@ -53,7 +53,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
             ->name('webcomics.index');
         Route::get('/webcomics/{date?}', [\App\Http\Controllers\WebcomicController::class, 'show'])
             ->name('webcomics.show');
-
     });
 
 });

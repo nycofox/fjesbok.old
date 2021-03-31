@@ -101,4 +101,6 @@ return [
         ],
     ],
 
+    'directory' => env('LOG_DIRECTORY', storage_path('logs/')),
+
 ];

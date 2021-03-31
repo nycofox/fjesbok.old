@@ -8,9 +8,6 @@
             <thead class="bg-gray-50">
             <tr>
                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Name
-                </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Homepage
                 </th>
                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -30,13 +27,10 @@
             <tbody class="bg-white divide-y divide-gray-200">
             @foreach($sources as $source)
                 <tr>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        {{ $source->name }}
-                    </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                        <span title="{{ $source->homepage }}">
+                        <a href="{{ $source->homepage }}" title="{{ $source->homepage }}">
                         {{ Str::limit($source->homepage, 40) }}
-                        </span>
+                        </a>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                         {{ $source->last_scraped_at ? $source->last_scraped_at->diffForHumans() : 'Never' }}
@@ -52,7 +46,7 @@
                         @endif
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <a href="#" class="text-indigo-600 hover:text-indigo-900 mr-2">Scrape now</a>
+                        <a href="{{ route('admin.webcomics.sources.scrape', [$webcomic, $source]) }}" class="text-indigo-600 hover:text-indigo-900 mr-2">Scrape now</a>
                         <a href="{{ route('admin.webcomics.sources.edit', [$webcomic, $source]) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                     </td>
                 </tr>

@@ -17,5 +17,6 @@ Route::group(['middleware' => 'role:admin', 'prefix' => 'admin'], function () {
         Route::post('webcomics/{webcomic}/createsource', [\App\Http\Controllers\Admin\Webcomics\WebcomicSourceController::class, 'store'])->name('webcomics.sources.store');
         Route::get('webcomics/{webcomic}/{source}', [\App\Http\Controllers\Admin\Webcomics\WebcomicSourceController::class, 'edit'])->name('webcomics.sources.edit');
         Route::patch('webcomics/{webcomic}/{source}', [\App\Http\Controllers\Admin\Webcomics\WebcomicSourceController::class, 'update'])->name('webcomics.sources.update');
+        Route::get('webcomics/{webcomic}/{source}/scrape', [\App\Http\Controllers\Admin\Webcomics\WebcomicSourceController::class, 'scrape'])->name('webcomics.sources.scrape');
     });
 });

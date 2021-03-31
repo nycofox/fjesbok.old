@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class WebcomicSource extends Model
 {
@@ -11,19 +13,36 @@ class WebcomicSource extends Model
 
     protected $guarded = [];
 
-    public function webcomic()
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'last_scraped_at' => 'datetime',
+    ];
+
+    public function webcomic(): BelongsTo
     {
         return $this->belongsTo(Webcomic::class);
     }
 
-    public function strips()
+    public function strips(): HasMany
     {
         return $this->hasMany(WebcomicStrip::class);
     }
 
-    public function getLanguageAttribute()
+    public function getLanguageAttribute(): string
     {
         return $this->locales()[$this->lang] ?? 'Unknown';
+    }
+
+    public function getScrapersAttribute(): array
+    {
+        return [
+            'SearchScraper' => 'App\Scrapers\Webcomics\Searchscraper',
+            'GenerateScraper' => 'App\Scrapers\Webcomics\Generatescraper',
+        ];
     }
 
     private function locales()

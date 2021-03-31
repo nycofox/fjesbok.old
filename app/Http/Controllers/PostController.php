@@ -28,7 +28,7 @@ class PostController extends Controller
         ]);
 
         if ($request->file('upload')) {
-            $media = Media::store($request->file('upload'), auth()->id());
+            $media = Media::storeRequest($request->file('upload'), auth()->id());
         }
 
         $post = Post::create([

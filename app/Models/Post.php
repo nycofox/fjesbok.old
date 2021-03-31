@@ -32,11 +32,21 @@ class Post extends Model
         'last_edited_at' => 'datetime',
     ];
 
+    /**
+     * A Post belongs to a User
+     *
+     * @return BelongsTo
+     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * A Post may have Media
+     *
+     * @return BelongsTo
+     */
     public function media(): BelongsTo
     {
         return $this->belongsTo(Media::class);

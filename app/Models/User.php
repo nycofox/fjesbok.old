@@ -74,11 +74,21 @@ class User extends Authenticatable implements MustVerifyEmail
         return 'slug';
     }
 
+    /**
+     * A User may have many Posts
+     *
+     * @return HasMany
+     */
     public function posts(): HasMany
     {
         return $this->hasMany(Post::class)->latest();
     }
 
+    /**
+     * Returns an URL to the users avatar
+     *
+     * @return string
+     */
     public function getAvatarAttribute(): string
     {
         return "https://www.gravatar.com/avatar/" . md5($this->email) . "?d=monsterid";
@@ -98,16 +108,30 @@ class User extends Authenticatable implements MustVerifyEmail
             ->latest()->paginate(20);
     }
 
+    /**
+     * A User may have many Comments
+     *
+     * @return HasMany
+     */
     public function comments(): HasMany
     {
         return $this->hasMany(Comment::class);
     }
 
+    /**
+     * A User may have many Votes
+     *
+     * @return HasMany
+     */
     public function votes(): HasMany
     {
         return $this->hasMany(Vote::class);
     }
 
+    /**
+     * A User may have many Friends
+     *
+     */
     public function friends()
     {
 

@@ -5,14 +5,14 @@ namespace App\Console\Commands;
 use App\Models\WebcomicSource;
 use Illuminate\Console\Command;
 
-class WebcomicScraper extends Command
+class WebcomicsScrapeAll extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'webcomics:scrape';
+    protected $signature = 'webcomics:scrapeall';
 
     /**
      * The console command description.
@@ -33,18 +33,25 @@ class WebcomicScraper extends Command
 
     /**
      * Execute the console command.
-     *
-     * @return int
      */
     public function handle()
     {
+        $this->info('Scraping all webcomics starting at ' . now());
+
         $sources = WebcomicSource::whereActive(true)->with('webcomic')->get();
 
-        foreach($sources as $source)
-        {
-            $this->info($source->webcomic->name . ' - Processing source ' . $source->name);
+        if ($sources->count() == 0) {
+            $this->warn('No active sources found, aborting.');
+            $this->line('--------------------------------------------------------');
+            return null;
         }
 
+        $this->info('Found ' . $sources->count() . ' sources, scraping...');
 
+        foreach ($sources as $source) {
+            $this->call('webcomics:scrape', ['source' => $source->id]);
+        }
+
+        $this->line('--------------------------------------------------------');
     }
 }

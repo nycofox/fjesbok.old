@@ -20,7 +20,7 @@ class WebcomicSourceController extends Controller
     {
         return view('admin.webcomics.sources.index', [
             'webcomic' => $webcomic,
-            'sources' => WebcomicSource::where('webcomic_id', $webcomic->id)->withCount('strips')->orderBy('name')->get(),
+            'sources' => WebcomicSource::where('webcomic_id', $webcomic->id)->withCount('strips')->get(),
         ]);
     }
 
@@ -114,5 +114,12 @@ class WebcomicSourceController extends Controller
     public function destroy(WebcomicSource $webcomicSource)
     {
         //
+    }
+
+    public function scrape(Webcomic $webcomic, WebcomicSource $source)
+    {
+        $result = \Artisan::call('webcomics:scrape', ['source' => $source->id]);
+
+        return \Artisan::output();
     }
 }

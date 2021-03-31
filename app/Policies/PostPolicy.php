@@ -12,6 +12,7 @@ class PostPolicy
 
     /**
      * Determine whether the user can update the model.
+     * The user id on the post much match the logged in user id.
      *
      * @param User $user
      * @param Post $post
