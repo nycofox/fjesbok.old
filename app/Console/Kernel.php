@@ -25,7 +25,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('webcomics:scrapeall')
-            ->everyMinute()
+            ->hourly()
             ->appendOutputTo(config('logging.directory') . 'webcomics/' . date('Ymd') . '.log');
     }
 
