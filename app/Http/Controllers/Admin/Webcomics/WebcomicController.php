@@ -31,7 +31,6 @@ class WebcomicController extends Controller
     public function update(Webcomic $webcomic, Request $request)
     {
         $request->validate([
-            'name' => 'required',
             'slug' => ['required', Rule::unique('webcomics')->ignore($webcomic->id),],
         ]);
 

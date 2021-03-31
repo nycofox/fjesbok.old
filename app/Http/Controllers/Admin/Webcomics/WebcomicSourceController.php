@@ -10,6 +10,14 @@ use Illuminate\Validation\Rule;
 
 class WebcomicSourceController extends Controller
 {
+
+    private $rules = [
+        'homepage' => ['required', 'url'],
+        'searchpage' => ['nullable', 'url'],
+        'searchstring' => ['required'],
+        'scraper' => ['required'],
+    ];
+
     /**
      * Display a listing of the resource.
      *
@@ -45,15 +53,9 @@ class WebcomicSourceController extends Controller
      */
     public function store(Webcomic $webcomic, Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'homepage' => ['required', 'url'],
-            'searchpage' => ['nullable', 'url'],
-
-        ]);
+        $request->validate($this->rules);
 
         $webcomic->sources()->create([
-            'name' => $request->name,
             'homepage' => $request->homepage,
             'searchpage' => $request->searchpage ?? null,
             'searchstring' => $request->searchstring ?? null,
@@ -86,19 +88,13 @@ class WebcomicSourceController extends Controller
      */
     public function update(Request $request, Webcomic $webcomic, WebcomicSource $source)
     {
-        $request->validate([
-            'name' => 'required',
-            'homepage' => ['required', 'url'],
-            'searchpage' => ['nullable', 'url'],
-
-        ]);
+        $request->validate($this->rules);
 
         $source->update([
-            'name' => $request->name,
             'homepage' => $request->homepage,
             'searchpage' => $request->searchpage ?? null,
-            'searchstring' => $request->searchstring ?? null,
-            'scraper' => 'default'
+            'searchstring' => $request->searchstring,
+            'scraper' => $request->scraper ?? 'App\Scrapers\Webcomics\Searchscraper',
         ]);
 
         return redirect(route('admin.webcomics.sources', $webcomic));
