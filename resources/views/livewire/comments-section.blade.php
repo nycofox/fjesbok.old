@@ -16,27 +16,24 @@
 
     <x-messages.success/>
 
-    <x-card>
-        @forelse($post->comments as $comment)
-            <div class="flex">
-                <div class="flex items-top mr-4 -mt-4">
-                    <livewire:votes :voteable="$comment"/>
+
+    @forelse($post->comments as $comment)
+        <x-card>
+            <div class="mb-2">
+                <div class="text-sm">
+                    <a href="{{ route('profile', $comment->user) }}" class="font-semibold">
+                        {{ $comment->user->name }}
+                    </a>
+                    replied {{ $comment->created_at->diffForHumans() }}:
                 </div>
-                <div class="mb-2">
-                    <div class="text-sm">
-                        <a href="{{ route('profile', $comment->user) }}" class="font-semibold">
-                            {{ $comment->user->name }}
-                        </a>
-                        replied {{ $comment->created_at->diffForHumans() }}:
-                    </div>
-                    <div class="text-lg">
-                        {!! Str::markdown($comment->body) !!}
-                    </div>
+                <div class="text-lg">
+                    {!! Str::markdown($comment->body) !!}
                 </div>
             </div>
-            <hr>
-        @empty
+        </x-card>
+    @empty
+        <x-card>
             <div>No replies yet!</div>
-        @endforelse
-    </x-card>
+        </x-card>
+    @endforelse
 </div>

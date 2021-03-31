@@ -17,9 +17,7 @@ class DevSeeder extends Seeder
      */
     public function run()
     {
-        WebcomicSource::factory()->create();
-
-        Webcomic::factory(3)->create();
+        WebcomicSource::factory(4)->create();
 
         Post::factory(50)->create();
     }

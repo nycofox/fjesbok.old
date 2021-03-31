@@ -15,12 +15,9 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-        $post->with('comments');
-
         return view('post.show')->with([
             'post' => $post,
-//            'comments' => $post->comments
-        ]);
+      ]);
     }
 
     public function store(Request $request)

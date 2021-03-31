@@ -20,6 +20,8 @@ class CreateWebcomicStripsTable extends Migration
             $table->text('title')->nullable();
             $table->text('description')->nullable();
             $table->text('transcript')->nullable();
+            $table->date('date');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

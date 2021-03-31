@@ -22,5 +22,6 @@ class AdminSeeder extends Seeder
         ]);
 
         $admin->assignRole('admin');
+        $admin->assignRole('webcomics');
     }
 }

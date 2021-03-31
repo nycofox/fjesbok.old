@@ -16,11 +16,12 @@ class CreateWebcomicSourcesTable extends Migration
         Schema::create('webcomic_sources', function (Blueprint $table) {
             $table->id();
             $table->foreignId('webcomic_id');
-            $table->string('name');
+//            $table->string('name');
             $table->string('homepage');
             $table->string('searchpage')->nullable();
             $table->string('searchstring')->nullable();
             $table->string('scraper');
+            $table->string('lang')->nullable();
             $table->boolean('active')->default(true);
             $table->timestamp('last_scraped_at')->nullable();
             $table->timestamps();

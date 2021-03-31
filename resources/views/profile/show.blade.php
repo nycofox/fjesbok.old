@@ -2,7 +2,7 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ $user->name }} -
-            <spann class="text-sm text-gray-600">Profile page</spann>
+            <spann class="text-sm text-gray-600">Timeline</spann>
         </h2>
     </x-slot>
 
@@ -28,9 +28,13 @@
                         <span class="text-gray-600">karma</span>
                     </div>
                 </div>
-{{--                <div class="mx-10"></div>--}}
+                {{--                <div class="mx-10"></div>--}}
                 <div>
-                    <x-button>Friend</x-button>
+                    @if($user->id = auth()->id())
+                        <x-button>Edit profile</x-button>
+                    @else
+                        <x-button>Add as friend</x-button>
+                    @endif
                 </div>
             </div>
         </x-card>

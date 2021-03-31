@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->bigInteger('karma')->default(0);
+            $table->foreignId('invited_by')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

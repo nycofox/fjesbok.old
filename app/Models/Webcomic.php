@@ -24,5 +24,6 @@ class Webcomic extends Model
     public function getLogoAttribute()
     {
         return asset('img/missing.jpg');
+//        return null;
     }
 }

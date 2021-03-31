@@ -14,8 +14,8 @@ use Multicaret\Acquaintances\Traits\CanBeVoted;
 
 class Post extends Model
 {
-    use HasFactory, SoftDeletes, HasComments;
-    use CanBeLiked, CanBeFavorited, CanBeVoted;
+    use HasFactory, SoftDeletes, HasComments, HasVotes;
+//    use CanBeLiked, CanBeFavorited, CanBeVoted;
 
     protected $guarded = [];
 

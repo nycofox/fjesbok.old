@@ -24,10 +24,11 @@ class WebcomicSourceFactory extends Factory
     public function definition()
     {
         return [
-            'name' => Str::ucfirst($this->faker->word),
+//            'name' => Str::ucfirst($this->faker->word),
             'webcomic_id' => Webcomic::factory()->create()->id,
             'homepage' => $this->faker->url,
             'scraper' => 'default',
+            'lang' => 'en',
         ];
     }
 }

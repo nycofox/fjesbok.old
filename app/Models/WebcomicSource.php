@@ -20,4 +20,18 @@ class WebcomicSource extends Model
     {
         return $this->hasMany(WebcomicStrip::class);
     }
+
+    public function getLanguageAttribute()
+    {
+        return $this->locales()[$this->lang] ?? 'Unknown';
+    }
+
+    private function locales()
+    {
+        return [
+            'nb' => 'Norwegian',
+            'en' => 'English',
+            'sv' => 'Swedish'
+        ];
+    }
 }
