@@ -20,6 +20,11 @@ class WebcomicStrip extends Model
      */
     public function source(): BelongsTo
     {
-        return $this->belongsTo(WebcomicSource::class);
+        return $this->belongsTo(WebcomicSource::class, 'webcomic_source_id', 'id');
+    }
+
+    public function media(): BelongsTo
+    {
+        return $this->belongsTo(Media::class);
     }
 }

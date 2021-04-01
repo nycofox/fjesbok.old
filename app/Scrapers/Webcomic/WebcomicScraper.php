@@ -6,12 +6,15 @@ namespace App\Scrapers\Webcomic;
 
 use App\Models\Media;
 use App\Models\WebcomicSource;
-use App\Models\WebcomicStrip;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 
 abstract class WebcomicScraper
 {
+    protected string $title;
+
+    protected string $description;
+
     /**
      * Main class must have function to get the Image URL
      * @param WebcomicSource $source

@@ -31,7 +31,7 @@ class Media extends Model
      *
      * @return string
      */
-    public function getUrlAttribute()
+    public function getUrlAttribute(): string
     {
         return Storage::temporaryUrl($this->path, now()->addMinute());
     }

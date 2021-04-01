@@ -20,6 +20,8 @@ class CreateWebcomicSourcesTable extends Migration
             $table->string('homepage');
             $table->string('searchpage')->nullable();
             $table->string('searchstring')->nullable();
+            $table->string('searchstring_title')->nullable();
+            $table->string('searchstring_description')->nullable();
             $table->string('scraper');
             $table->string('lang')->nullable();
             $table->boolean('active')->default(true);
