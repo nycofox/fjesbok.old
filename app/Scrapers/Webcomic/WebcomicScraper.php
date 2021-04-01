@@ -30,6 +30,8 @@ abstract class WebcomicScraper
      */
     public function downloadImage($url, WebcomicSource $source)
     {
+        $url = html_entity_decode($url);
+
         $response = Http::withHeaders([
             'Referer' => $source->searchpage ?? $source->homepage,
         ])
