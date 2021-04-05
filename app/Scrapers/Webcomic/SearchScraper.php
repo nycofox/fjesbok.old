@@ -19,7 +19,7 @@ class SearchScraper extends WebcomicScraper
             return null;
         }
 
-        $searchstring = '/' . $source->searchstring . '/';
+        $searchstring = '/' . $this->convertUrl($source->searchstring) . '/';
 
         if(preg_match_all($searchstring, $searchpage->body(), $result)) {
             return $result[1][0];
