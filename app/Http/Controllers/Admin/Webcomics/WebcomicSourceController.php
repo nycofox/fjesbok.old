@@ -13,7 +13,7 @@ class WebcomicSourceController extends Controller
 
     private $rules = [
         'homepage' => ['required', 'url'],
-        'searchpage' => ['nullable', 'url'],
+        'searchpage' => ['nullable'],
         'searchstring' => ['required'],
         'scraper' => ['required'],
     ];

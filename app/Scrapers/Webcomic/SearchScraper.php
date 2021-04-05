@@ -13,7 +13,7 @@ class SearchScraper extends WebcomicScraper
     {
         $url = $source->searchpage ?? $source->homepage;
 
-        $searchpage = Http::get($url);
+        $searchpage = Http::get($this->convertUrl($url));
 
         if($searchpage->failed()) {
             return null;

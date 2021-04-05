@@ -7,6 +7,8 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <link rel="shortcut icon" type="image/jpg" href="{{ asset('/img/fjesbok-logo.png') }}"/>
+
     <!-- Fonts -->
 {{--    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">--}}
 
