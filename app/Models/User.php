@@ -3,11 +3,13 @@
 namespace App\Models;
 
 use App\Traits\HasRoles;
+use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 use Multicaret\Acquaintances\Traits\CanFavorite;
 use Multicaret\Acquaintances\Traits\CanFollow;
@@ -106,6 +108,26 @@ class User extends Authenticatable implements MustVerifyEmail
         return Post::whereIn('user_id', $friends)
             ->orWhere('user_id', $this->id)
             ->latest()->paginate(20);
+    }
+
+    /**
+     * Returns true if the user is currently online
+     *
+     * @return bool
+     */
+    public function isOnline(): bool
+    {
+        return Cache::has('user-online-' . $this->id);
+    }
+
+    /**
+     * Returns the timestamp for when the user was last active
+     *
+     * @return Carbon|null
+     */
+    public function lastActivity(): ?Carbon
+    {
+        return Cache::get('user-last-activity-' . $this->id);
     }
 
     /**
