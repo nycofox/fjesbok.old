@@ -3,14 +3,10 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             @if($date->isToday())
                 Todays Webcomics ({{ $date->format('Y-m-d') }})
-                <x-slot name="title">
-                    Webcomics today
-                </x-slot>
+                <x-slot name="title">Webcomics today</x-slot>
             @else
                 Webcomics for {{ $date->format('Y-m-d') }}
-                <x-slot name="title">
-                    Webcomics ({{ $date->format('Y-m-d') }})
-                </x-slot>
+                <x-slot name="title">Webcomics ({{ $date->format('Y-m-d') }})</x-slot>
             @endif
         </h2>
     </x-slot>
