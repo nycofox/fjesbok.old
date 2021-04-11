@@ -30,6 +30,14 @@
                 </div>
                 {{--                <div class="mx-10"></div>--}}
                 <div>
+                    @if($user->isOnline())
+                        <span class="mr-2">Is online now</span>
+                    @else
+                        @if($user->lastActivity())
+                            <span class="mr-2">Was last seen {{ $user->lastActivity()->diffForHumans() }}</span>
+                        @endif
+                    @endif
+
                     @if($user->id = auth()->id())
                         <x-button>Edit profile</x-button>
                     @else

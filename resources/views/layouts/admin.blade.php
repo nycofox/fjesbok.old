@@ -8,11 +8,11 @@
         </h2>
     </x-slot>
 
-    <div class="flex">
-        <div id="main" class="w-3/4">
+    <div class="flex flex-wrap">
+        <div id="main" class="flex-grow md:mr-4">
             {{ $slot }}
         </div>
-        <div id="sidebar" class="w-1/4">
+        <div id="sidebar" class="md:flex-none">
             @include('admin._sidebar')
         </div>
 

@@ -4,6 +4,7 @@
         <div>
             <header class="mb-2">
                 <h3 class="font-bold">
+
                     <a href="{{ route('profile', $post->user) }}">{{ $post->user->name }}</a>
                 </h3>
                 <div class="flex text-sm">
