@@ -29,7 +29,7 @@
                class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Your
                 Profile</a>
 
-            <a href="#"
+            <a href="{{ route('settings') }}"
                class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Settings</a>
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
