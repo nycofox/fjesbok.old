@@ -17,3 +17,9 @@ It's just like... a few versions left before the 1.0 extravaganza!
 #### Fixed
 
 -
+
+### Minor Updates
+
+#### Added
+
+- New flash messages.
