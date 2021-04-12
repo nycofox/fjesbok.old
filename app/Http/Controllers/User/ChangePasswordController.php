@@ -13,7 +13,7 @@ class ChangePasswordController extends Controller
 {
     public function edit()
     {
-        return view('user.password')->with([
+        return view('user.password', [
             'user' => Auth::user(),
         ]);
     }

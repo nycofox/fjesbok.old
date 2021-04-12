@@ -10,7 +10,7 @@ class SettingsController extends Controller
 {
     public function show()
     {
-        return view('user.settings')->with([
+        return view('user.settings', [
             'user' => Auth::user(),
         ]);
     }
