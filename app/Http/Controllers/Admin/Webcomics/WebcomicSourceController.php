@@ -41,6 +41,7 @@ class WebcomicSourceController extends Controller
     {
         return view('admin.webcomics.sources.create', [
             'webcomic' => $webcomic,
+            'scrapers' => $this->scrapers()
         ]);
     }
 
@@ -75,7 +76,8 @@ class WebcomicSourceController extends Controller
     {
         return view('admin.webcomics.sources.edit', [
             'webcomic' => $webcomic,
-            'source' => $source
+            'source' => $source,
+            'scrapers' => $this->scrapers()
         ]);
     }
 
@@ -117,5 +119,13 @@ class WebcomicSourceController extends Controller
         $result = \Artisan::call('webcomics:scrape', ['source' => $source->id]);
 
         return \Artisan::output();
+    }
+
+    private function scrapers(): array
+    {
+        return [
+            'App\Scrapers\Webcomics\Searchscraper' => 'Search',
+            'App\Scrapers\Webcomics\Generatescraper' => 'Generate',
+        ];
     }
 }
