@@ -24,8 +24,8 @@ return [
     */
 
     'release' => [
-        'version' => '0.1',
-        'date' => '2021-04-01'
+        'version' => '0.3',
+        'date' => '2021-04-18'
     ],
 
     /*
@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'https://fjesbok.test'),
 
     'asset_url' => env('ASSET_URL', null),
 

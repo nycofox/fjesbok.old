@@ -4,20 +4,6 @@
 
 We're quietly approaching a full release.
 
-### Major Updates
-
-#### Added
-
-- 
-
-#### Changed
-
--
-
-#### Fixed
-
--
-
 ### Minor Updates
 
 #### Added

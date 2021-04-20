@@ -41,6 +41,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('u/{user}', [\App\Http\Controllers\User\ProfileController::class, 'show'])->name('profile');
 
     /**
+     * User Settings
+     */
+    Route::get('settings', [\App\Http\Controllers\User\SettingsController::class, 'show'])
+        ->name('settings');
+    Route::get('settings/password', [\App\Http\Controllers\User\ChangePasswordController::class, 'edit'])
+        ->name('settings.password');
+    Route::patch('settings/password', [\App\Http\Controllers\User\ChangePasswordController::class, 'update'])
+        ->name('settings.password');
+
+    /**
      * Admin routes
      */
     require __DIR__ . '/_admin.php';
