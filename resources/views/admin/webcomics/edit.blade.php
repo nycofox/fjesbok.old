@@ -1,6 +1,6 @@
 <x-admin-layout>
     <x-slot name="header">
-        Webcomics - create new
+        Webcomics - edit {{ $webcomic->name }}
     </x-slot>
 
     <x-card>

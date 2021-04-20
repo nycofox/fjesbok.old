@@ -61,6 +61,7 @@ class WebcomicSourceController extends Controller
             'searchpage' => $request->searchpage ?? null,
             'searchstring' => $request->searchstring ?? null,
             'scraper' => $request->scraper ?? 'App\Scrapers\Webcomics\Searchscraper',
+            'active' => $request->active ?? false,
         ]);
 
         return redirect(route('admin.webcomics.sources', $webcomic));
@@ -97,6 +98,7 @@ class WebcomicSourceController extends Controller
             'searchpage' => $request->searchpage ?? null,
             'searchstring' => $request->searchstring,
             'scraper' => $request->scraper ?? 'App\Scrapers\Webcomics\Searchscraper',
+            'active' => $request->active ?? false,
         ]);
 
         return redirect(route('admin.webcomics.sources', $webcomic));

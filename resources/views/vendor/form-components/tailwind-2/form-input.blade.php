@@ -9,7 +9,7 @@
                    wire:model{!! $wireModifier() !!}="{{ $name }}"
                @else
                     name="{{ $name }}"
-                   @if(!$type == 'password')
+                   @if($type != 'password')
                        value="{{ $value }}"
                    @endif
                @endif
