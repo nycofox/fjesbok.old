@@ -17,20 +17,22 @@ class WebcomicController extends Controller
      */
     public function show($date = null)
     {
-        if(!$date = $this->setDate($date))
-        {
+        if (!$date = $this->setDate($date)) {
             abort(404);
         }
 
         return view('webcomics.show',
-        [
-            'date' => $date,
-            'strips' => WebcomicStrip::where('date', $date->format('Y-m-d'))
-                ->with('media')
-                ->with('source')
-                ->with('source.webcomic')
-                ->get(),
-        ]);
+            [
+                'date' => $date,
+                'strips' => WebcomicStrip::where('date', $date->format('Y-m-d'))
+                    ->with('media')
+                    ->with('source')
+                    ->with('source.webcomic')
+                    ->get()
+                    ->sortBy(function ($q) {
+                        return $q->source->webcomic->name;
+                    })
+            ]);
     }
 
     /**
@@ -67,7 +69,7 @@ class WebcomicController extends Controller
         /*
          * If no date, set to today
          */
-        if(!$date) {
+        if (!$date) {
             return Carbon::now();
         }
 
@@ -75,14 +77,14 @@ class WebcomicController extends Controller
          * Parse date, return null if invalid
          */
 
-        if(!Carbon::createFromFormat('Y-m-d', $date)) {
+        if (!Carbon::createFromFormat('Y-m-d', $date)) {
             return null;
         }
 
         /*
          * If date is in the future, return null
          */
-        if(Carbon::createFromFormat('Y-m-d', $date)->isFuture()) {
+        if (Carbon::createFromFormat('Y-m-d', $date)->isFuture()) {
             return null;
         }
 
