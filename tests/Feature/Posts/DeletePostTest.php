@@ -37,18 +37,14 @@ class DeletePostTest extends TestCase
 
         $this->signIn($user);
 
-//        dd($user);
-
         $post = Post::factory()->create(['user_id' =>  $user->id]);
 
-        dd($post);
-
-//        $this->signIn($post->user);
+        $this->assertDatabaseCount('posts', 1);
 
         $this->post(route('post.destroy', $post))
             ->assertStatus(302);
 
-        $this->assertDatabaseCount('posts', 0);
+        $this->assertSoftDeleted($post);
     }
 
 }

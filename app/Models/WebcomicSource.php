@@ -37,14 +37,6 @@ class WebcomicSource extends Model
         return $this->locales()[$this->lang] ?? 'Unknown';
     }
 
-    public function getScrapersAttribute(): array
-    {
-        return [
-            'SearchScraper' => 'App\Scrapers\Webcomics\Searchscraper',
-            'GenerateScraper' => 'App\Scrapers\Webcomics\Generatescraper',
-        ];
-    }
-
     private function locales()
     {
         return [

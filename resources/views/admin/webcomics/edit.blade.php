@@ -1,16 +1,12 @@
 <x-admin-layout>
     <x-slot name="header">
-        Webcomics - create new
+        Webcomics - edit {{ $webcomic->name }}
     </x-slot>
 
     <x-card>
-        <x-form action="{{ route('admin.webcomics.update', $webcomic) }}" method="patch">
+        <x-form action="{{ route('admin.webcomics.update', $webcomic) }}" method="patch" enctype="multipart/form-data">
             @bind($webcomic)
-            <x-form-input name="name" label="Name"/>
-            <x-form-input name="slug" label="Slug"/>
-            <x-form-input name="author" label="Author"/>
-
-            <x-form-submit/>
+            @include('admin.webcomics._form')
             @endbind
         </x-form>
     </x-card>
