@@ -43,16 +43,16 @@ class Media extends Model
      * @param null $userid
      * @return Media
      */
-    public static function storeRequest($request, $userid = null): Media
+    public static function storeFromPath($path, $originalname, $md5, $userid = null): Media
     {
-        $path = $request->store('i/' . date('Y/m/d'));
+//        $path = $request->file($name)->store('i/' . date('Y/m/d'));
 
         $media = Media::create([
-            'filename_original' => $request->getClientOriginalName(),
+            'filename_original' => $originalname,
             'path' => $path,
-            'slug' => Str::random(12) . '.' . basename($request->getMimeType()),
+            'slug' => Str::random(12) . '.' . substr(strrchr($path,'.'),1),
             'type' => 'i',
-            'hash' => md5_file($request->path()),
+            'hash' => $md5,
             'user_id' => $userid,
         ]);
 

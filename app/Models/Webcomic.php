@@ -11,6 +11,8 @@ class Webcomic extends Model
 
     protected $guarded = [];
 
+    protected $with = ['media'];
+
     public function getRouteKeyName()
     {
         return 'slug';
@@ -21,9 +23,18 @@ class Webcomic extends Model
         return $this->hasMany(WebcomicSource::class);
     }
 
-    public function getLogoAttribute()
+    public function media()
     {
+        return $this->belongsTo(Media::class);
+    }
+
+    public function getLogoUrlAttribute()
+    {
+        if ($this->media_id) {
+            return $this->media->url;
+        }
+
         return asset('img/missing.jpg');
-//        return null;
+
     }
 }

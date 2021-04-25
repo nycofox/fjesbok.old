@@ -13,12 +13,17 @@
 
     @forelse($strips as $strip)
         <x-card>
-            <div class="font-bold text-lg">{{ $strip->source->webcomic->name }}
-                <span class="font-normal text-sm text-gray-500">by {{ $strip->source->webcomic->author }}</span>
-                <div>
-                    <img src="{{ $strip->media->url }}">
-                </div>
-			</div>
+            <div class="font-bold text-lg flex items-center">
+                @if($strip->source->webcomic->media_id)
+                    <img src="{{ $strip->source->webcomic->logoUrl }}" class="h-10">
+                @else
+                    {{ $strip->source->webcomic->name }}
+                @endif
+                <span class="ml-2 font-normal text-sm text-gray-500">by {{ $strip->source->webcomic->author }}</span>
+            </div>
+            <div>
+                <img src="{{ $strip->media->url }}">
+            </div>
         </x-card>
     @empty
         <x-card>

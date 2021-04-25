@@ -23,9 +23,9 @@
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap">
                         <div class="flex items-center">
-                            <div class="flex-shrink-0">
-                                <img class="w-40"
-                                     src="{{ $webcomic->logo }}"
+                            <div class="flex-shrink-0 w-40">
+                                <img class="h-10"
+                                     src="{{ $webcomic->logoUrl }}"
                                      alt="">
                             </div>
                             <div class="ml-4">
