@@ -42,11 +42,12 @@ class WebcomicController extends Controller
             'name' => $request->name,
             'slug' => $request->slug,
             'author' => $request->author ?? null,
+            'media_id' => $media,
         ]);
 
-        if($media) {
-            $webcomic->update(['media_id' => $media->id]);
-        }
+//        if($media) {
+//            $webcomic->update(['media_id' => $media]);
+//        }
 
         return redirect(route('admin.webcomics.index'));
     }
@@ -65,7 +66,7 @@ class WebcomicController extends Controller
             'name' => $request->name,
             'slug' => $request->slug,
             'author' => $request->author ?? null,
-            'media_id' => $media->id,
+            'media_id' => $media,
         ]);
 
         return redirect(route('admin.webcomics.index'));
@@ -79,7 +80,7 @@ class WebcomicController extends Controller
                 $path,
                 $request->file('logo')->getClientOriginalName(),
                 md5_file($request->file('logo'))
-            );
+            )->id();
         }
 
         return null;

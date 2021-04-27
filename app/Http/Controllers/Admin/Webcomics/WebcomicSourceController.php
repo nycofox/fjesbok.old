@@ -118,7 +118,7 @@ class WebcomicSourceController extends Controller
 
     public function scrape(Webcomic $webcomic, WebcomicSource $source)
     {
-        $result = \Artisan::call('webcomics:scrape', ['source' => $source->id]);
+        \Artisan::call('webcomics:scrape', ['source' => $source->id]);
 
         return \Artisan::output();
     }
@@ -126,8 +126,8 @@ class WebcomicSourceController extends Controller
     private function scrapers(): array
     {
         return [
-            'App\Scrapers\Webcomics\Searchscraper' => 'Search',
-            'App\Scrapers\Webcomics\Generatescraper' => 'Generate',
+            'App\Scrapers\Webcomic\SearchScraper' => 'Search',
+            'App\Scrapers\Webcomic\GenerateScraper' => 'Generate',
         ];
     }
 }
