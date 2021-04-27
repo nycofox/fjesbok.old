@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Fjesbok'),
 
     /*
     |--------------------------------------------------------------------------
@@ -24,8 +24,8 @@ return [
     */
 
     'release' => [
-        'version' => '1.0.4.1',
-        'date' => '2021-04-25'
+        'version' => '1.0.5.0',
+        'date' => '2021-05-02'
     ],
 
     /*
@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://fjesbok.test'),
+    'url' => env('APP_URL', 'https://fjesbok.no'),
 
     'asset_url' => env('ASSET_URL', null),
 
