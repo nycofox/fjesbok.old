@@ -45,10 +45,6 @@ class WebcomicController extends Controller
             'media_id' => $media,
         ]);
 
-//        if($media) {
-//            $webcomic->update(['media_id' => $media]);
-//        }
-
         return redirect(route('admin.webcomics.index'));
     }
 
