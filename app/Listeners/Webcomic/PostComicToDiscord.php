@@ -27,9 +27,7 @@ class PostComicToDiscord
      */
     public function handle(StoredWebcomic $event)
     {
-//        dd($event->strip->media->url);
-
-        return Http::post(config('services.discord.webcomics_key'), [
+        return Http::post(config('services.discord.webhooks.webcomics_url'), [
             'content' => $event->strip->source->webcomic->name . " (". $event->strip->source->domain . ")",
             'embeds' => [
                 [

@@ -31,8 +31,10 @@ return [
     ],
 
     'discord' => [
-        'admin_key' => env('DISCORD_ADMIN_WEBHOOK_URL'),
-        'webcomics_key' => env('DISCORD_COMIC_WEBHOOK_URL'),
+        'webhooks' => [
+            'admin_url' => env('DISCORD_ADMIN_WEBHOOK_URL'),
+            'webcomics_url' => env('DISCORD_COMIC_WEBHOOK_URL'),
+        ],
     ],
 
 ];
