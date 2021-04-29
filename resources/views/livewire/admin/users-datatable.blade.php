@@ -18,6 +18,10 @@
                                     Email
                                 </a>
                             </th>
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Last active
+                            </th>
                         </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
@@ -25,6 +29,14 @@
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ $user->name }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ $user->email }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    @if($user->lastActivity())
+                                        {{ $user->lastActivity()->diffForHumans() }}
+                                    @else
+                                        Never
+                                    @endif
+                                </td>
+
                             </tr>
                         @endforeach
                         </tbody>

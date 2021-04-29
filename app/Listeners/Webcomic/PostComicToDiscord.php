@@ -3,22 +3,10 @@
 namespace App\Listeners\Webcomic;
 
 use App\Events\Webcomic\StoredWebcomic;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Http;
 
 class PostComicToDiscord
 {
-    /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
     /**
      * Handle the event.
      *
