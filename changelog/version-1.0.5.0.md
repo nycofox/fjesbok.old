@@ -9,7 +9,6 @@ Some bugfixes
 #### Added
 
 - Log Reader for Admin users
-- Webcomics are now posted to Discord as they are downloaded
 
 ### Minor Updates
 

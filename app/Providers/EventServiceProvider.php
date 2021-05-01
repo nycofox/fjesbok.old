@@ -23,7 +23,7 @@ class EventServiceProvider extends ServiceProvider
             CreateDefaultAlbums::class
         ],
         StoredWebcomic::class => [
-            PostComicToDiscord::class
+//            PostComicToDiscord::class
         ]
     ];
 

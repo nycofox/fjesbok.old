@@ -20,7 +20,8 @@
         "league/flysystem-aws-s3-v3": "~1.0",
         "livewire/livewire": "^2.4",
         "multicaret/laravel-acquaintances": "^3.4",
-        "protonemedia/laravel-form-components": "^2.5"
+        "protonemedia/laravel-form-components": "^2.5",
+        "ext-json": "*"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",
