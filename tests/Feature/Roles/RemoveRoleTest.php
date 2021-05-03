@@ -22,4 +22,5 @@ class RemoveRoleTest extends TestCase
 
         $this->assertFalse($user->fresh()->hasRole('test'));
     }
+
 }

@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        return view('admin.user.index');
+        return view('admin.users.index');
     }
 
     public function show(User $user)

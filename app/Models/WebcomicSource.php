@@ -37,6 +37,11 @@ class WebcomicSource extends Model
         return $this->locales()[$this->lang] ?? 'Unknown';
     }
 
+    public function getDomainAttribute(): string
+    {
+        return parse_url($this->homepage, PHP_URL_HOST);
+    }
+
     private function locales()
     {
         return [

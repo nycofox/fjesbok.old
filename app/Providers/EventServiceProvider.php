@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Events\Webcomic\StoredWebcomic;
 use App\Listeners\User\CreateDefaultAlbums;
+use App\Listeners\Webcomic\PostComicToDiscord;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -20,6 +22,9 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
             CreateDefaultAlbums::class
         ],
+        StoredWebcomic::class => [
+//            PostComicToDiscord::class
+        ]
     ];
 
     /**

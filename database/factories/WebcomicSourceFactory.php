@@ -26,7 +26,7 @@ class WebcomicSourceFactory extends Factory
         return [
             'webcomic_id' => Webcomic::factory()->create()->id,
             'homepage' => $this->faker->url,
-            'scraper' => 'App\Scrapers\Webcomic\SearchScraper',
+            'scraper' => 'App\Scrapers\Webcomic\GenerateScraper',
             'lang' => 'en',
         ];
     }

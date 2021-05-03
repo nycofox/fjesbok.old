@@ -4,8 +4,10 @@
 namespace App\Scrapers\Webcomic;
 
 
+use App\Events\Webcomic\StoredWebcomic;
 use App\Models\Media;
 use App\Models\WebcomicSource;
+use App\Models\WebcomicStrip;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 
@@ -50,8 +52,9 @@ abstract class WebcomicScraper
      *
      * @param $response
      * @param WebcomicSource $source
+     * @return WebcomicStrip|null
      */
-    public function storeImage($response, WebcomicSource $source)
+    public function storeImage($response, WebcomicSource $source): ?WebcomicStrip
     {
         $path = 'webcomics/' . $source->id . '/' . Str::random(30) . '.' . basename($response->header('Content-Type'));
 
@@ -66,6 +69,8 @@ abstract class WebcomicScraper
 
         $source->update(['last_scraped_at' => now()]);
 
+        event(new StoredWebcomic($strip));
+
         return $strip ?? null;
     }
 
@@ -77,7 +82,7 @@ abstract class WebcomicScraper
      */
     public function checkDuplicate($md5): bool
     {
-        return Media::whereHash($md5)->first() ? true : false;
+        return (bool)Media::whereHash($md5)->first();
     }
 
     /**

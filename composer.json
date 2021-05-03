@@ -13,13 +13,15 @@
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "haruncpi/laravel-log-reader": "^1.0",
         "laracasts/flash": "^3.2",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
         "league/flysystem-aws-s3-v3": "~1.0",
         "livewire/livewire": "^2.4",
         "multicaret/laravel-acquaintances": "^3.4",
-        "protonemedia/laravel-form-components": "^2.5"
+        "protonemedia/laravel-form-components": "^2.5",
+        "ext-json": "*"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",
@@ -29,7 +31,8 @@
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
-        "phpunit/phpunit": "^9.3.3"
+        "phpunit/phpunit": "^9.3.3",
+        "sempro/phpunit-pretty-print": "^1.4"
     },
     "config": {
         "optimize-autoloader": true,
