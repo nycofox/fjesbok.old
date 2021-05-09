@@ -1,30 +1,64 @@
-<x-card>
-    <div class="uppercase tracking-wide text-c2 mb-4">Site</div>
-    <div class="flex cursor-pointer border px-4 py-2 text-lg text-grey-darkest border-b-0"
-         @if(Route::is('admin.dashboard'))
-         style="border-left: 4px solid #e2624b !important;"
-        @endif
-    >
-        <a href="{{ route('admin.dashboard') }}" class="pl-2">Admin Dashboard</a>
-    </div>
-    <div class="flex cursor-pointer border px-4 py-2 text-lg text-grey-darkest"
-         @if(Route::is('admin.users.*'))
-         style="border-left: 4px solid #e2624b !important;"
-        @endif
-    >
-        <a href="{{ route('admin.users.index') }}" class="pl-2">Users</a>
-    </div>
-    <div class="flex cursor-pointer border px-4 py-2 text-lg text-grey-darkest">
-        <a href="{{ url(config('laravel-log-reader.view_route_path')) }}" class="pl-2">Log Reader</a>
-    </div>
+<!-- Sidebar -->
+<div id="sidebar" class="sidebar sidebar-fixed expandable sidebar-light" data-backdrop="true" data-dismiss="true" data-swipe="true">
+    <div class="sidebar-inner">
 
-    <div class="uppercase tracking-wide text-c2 mb-4 mt-8">Modules</div>
-    <div class="flex cursor-pointer border px-4 py-2 text-lg text-grey-darkest"
-         @if(Route::is('admin.webcomics.*'))
-         style="border-left: 4px solid #e2624b !important;"
-        @endif
-    >
-        <a href="{{ route('admin.webcomics.index') }}" class="pl-2">Webcomics</a>
-    </div>
+        <div class="ace-scroll flex-grow-1 mt-1px" data-ace-scroll="{}">
 
-</x-card>
+            <!-- optional `nav` tag -->
+            <nav class="pt-3" aria-label="Main">
+                <ul class="nav flex-column has-active-border">
+                    <li class="nav-item-caption">
+                        <span class="fadeable pl-3">MAIN</span>
+                        <span class="fadeinable mt-n2 text-125">…</span>
+                        <!--
+                                 OR something like the following (with `.hideable` text)
+                             -->
+                        <!--
+                                 <div class="hideable">
+                                     <span class="pl-3">MAIN</span>
+                                 </div>
+                                 <span class="fadeinable mt-n2 text-125">&hellip;</span>
+                             -->
+                    </li>
+                    <li class="nav-item @if(Route::is('admin.dashboard')) active @endif">
+                        <a class="nav-link" href="{{ route('admin.dashboard') }}">
+                            <i class="nav-icon fa fa-home"></i>
+                            <span class="nav-text fadeable">Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item @if(Route::is('admin.users.*')) active @endif">
+                        <a class="nav-link" href="{{ route('admin.users.index') }}">
+                            <i class="nav-icon fa fa-users"></i>
+                            <span class="nav-text fadeable">Users</span>
+                        </a>
+                    </li>
+                    <li class="nav-item-caption">
+                        <span class="fadeable pl-3">MODULES</span>
+                        <span class="fadeinable mt-n2 text-125">…</span>
+                        <!--
+                                 OR something like the following (with `.hideable` text)
+                             -->
+                        <!--
+                                 <div class="hideable">
+                                     <span class="pl-3">MAIN</span>
+                                 </div>
+                                 <span class="fadeinable mt-n2 text-125">&hellip;</span>
+                             -->
+                    </li>
+
+                    <li class="nav-item @if(Route::is('admin.webcomics.*')) active @endif">
+                        <a class="nav-link" href="{{ route('admin.webcomics.index') }}">
+                            <i class="nav-icon fa fa-book-reader"></i>
+                            <span class="nav-text fadeable">Webcomics</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div><!-- /.ace-scroll -->
+
+
+
+    </div>
+</div>
