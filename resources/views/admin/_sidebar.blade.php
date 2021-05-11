@@ -53,6 +53,12 @@
                             <span class="nav-text fadeable">Webcomics</span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url(config('laravel-log-reader.view_route_path')) }}">
+                            <i class="nav-icon fa fa-list"></i>
+                            <span class="nav-text fadeable">Log Reader</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
 
