@@ -21,7 +21,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | Update this value before each release
-    */  
+    */
 
     'release' => [
         'version' => '1.0.7.0',
