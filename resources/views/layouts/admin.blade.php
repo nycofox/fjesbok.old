@@ -4,12 +4,22 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-    <base href="../"/>
+    <base href="{{ url('/') }}/"/>
 
-    <title>Starter - Ace Admin</title>
+    <title>Admin - {{ config('app.name') }}</title>
 
     <!-- include common vendor stylesheets & fontawesome -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/ace.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('dist/bootstrap/dist/css/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('dist/css/ace.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('dist/@fortawesome/fontawesome-free/css/fontawesome.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('dist/@fortawesome/fontawesome-free/css/regular.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('dist/@fortawesome/fontawesome-free/css/brands.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('dist/@fortawesome/fontawesome-free/css/solid.css') }}">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('dist/css/ace-font.css') }}">
+
 
     <!-- favicon -->
     <link rel="icon" type="image/png" href="{{ asset('img/fjesbok-logo.png') }}"/>
@@ -59,12 +69,12 @@
                             </a>
                         </li>
 
-{{--                        <li class="nav-item">--}}
-{{--                            <a class="nav-link dropdown-toggle pl-lg-3 pr-lg-4" href="#">--}}
-{{--                                <i class="fa fa-bell mr-lg-2"></i>--}}
-{{--                                <span class="badge bgc-white text-orange-d4 badge-pill mt-lg-n1">3</span>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
+                        {{--                        <li class="nav-item">--}}
+                        {{--                            <a class="nav-link dropdown-toggle pl-lg-3 pr-lg-4" href="#">--}}
+                        {{--                                <i class="fa fa-bell mr-lg-2"></i>--}}
+                        {{--                                <span class="badge bgc-white text-orange-d4 badge-pill mt-lg-n1">3</span>--}}
+                        {{--                            </a>--}}
+                        {{--                        </li>--}}
                     </ul>
                 </div>
             </div><!-- .navbar-menu -->
@@ -75,7 +85,6 @@
     <div class="main-container bgc-white">
 
     @include('admin._sidebar')
-
 
     <!-- Main Content -->
         <div role="main" class="main-content">
@@ -90,21 +99,10 @@
 
 </div>
 
-{{--<!-- include common vendor scripts used in demo pages -->--}}
-{{--<script src="./node_modules/jquery/dist/jquery.js"></script>--}}
-{{--<script src="./node_modules/popper.js/dist/umd/popper.js"></script>--}}
-{{--<script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>--}}
-
-
-<!-- include vendor scripts used in "Starter" page. see "/views//pages/partials/starter/@vendor-scripts.hbs" -->
-
-
-<!-- include ace.js -->
-<script src="{{ asset('js/admin/ace.js') }}"></script>
-<script src="{{ asset('js/admin/bootstrap.js') }}"></script>
-<script src="{{ asset('js/admin/jquery.js') }}"></script>
-<script src="{{ asset('js/admin/popper.js.js') }}"></script>
-
+<script src="{{ asset('dist/jquery/dist/jquery.js') }}"></script>
+<script src="{{ asset('dist/popper.js/dist/umd/popper.js') }}"></script>
+<script src="{{ asset('dist/bootstrap/dist/js/bootstrap.js') }}"></script>
+<script src="{{ asset('dist/js/ace.js') }}"></script>
 
 @stack('page-scripts')
 
