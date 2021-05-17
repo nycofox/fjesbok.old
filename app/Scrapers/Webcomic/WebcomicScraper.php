@@ -34,6 +34,10 @@ abstract class WebcomicScraper
     {
         $url = html_entity_decode($url);
 
+        if($source->baseurl) {
+            $url = $source->baseurl . $url;
+        }
+
         $response = Http::withHeaders([
             'Referer' => $source->searchpage ?? $source->homepage,
         ])
