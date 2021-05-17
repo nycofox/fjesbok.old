@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Console\Commands;
+namespace App\Console\Commands\Webcomics;
 
 use App\Models\WebcomicSource;
 use Illuminate\Console\Command;
 
-class WebcomicsScrapeAll extends Command
+class ScrapeAll extends Command
 {
     /**
      * The name and signature of the console command.
