@@ -14,6 +14,7 @@ class WebcomicSourceController extends Controller
     private $rules = [
         'homepage' => ['required', 'url'],
         'searchpage' => ['nullable'],
+        'baseurl' => ['nullable'],
         'searchstring' => ['required'],
         'scraper' => ['required'],
     ];
@@ -59,6 +60,7 @@ class WebcomicSourceController extends Controller
         $webcomic->sources()->create([
             'homepage' => $request->homepage,
             'searchpage' => $request->searchpage ?? null,
+            'baseurl' => $request->baseurl ?? null,
             'searchstring' => $request->searchstring ?? null,
             'scraper' => $request->scraper ?? 'App\Scrapers\Webcomics\Searchscraper',
             'active' => $request->active ?? false,
@@ -96,6 +98,7 @@ class WebcomicSourceController extends Controller
         $source->update([
             'homepage' => $request->homepage,
             'searchpage' => $request->searchpage ?? null,
+            'baseurl' => $request->baseurl ?? null,
             'searchstring' => $request->searchstring,
             'scraper' => $request->scraper ?? 'App\Scrapers\Webcomics\Searchscraper',
             'active' => $request->active ?? false,

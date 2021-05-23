@@ -4,18 +4,17 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddLogoToWebcomics extends Migration
+class AddLastActiveToUsersTable extends Migration
 {
     /**
      * Run the migrations.
-     * Adds a link to media, allowing for a webcomic to have a logo
      *
      * @return void
      */
     public function up()
     {
-        Schema::table('webcomics', function (Blueprint $table) {
-            $table->unsignedBigInteger('media_id')->nullable();
+        Schema::table('users', function (Blueprint $table) {
+            $table->timestamp('last_active_at')->nullable()->after('remember_token');
         });
     }
 
@@ -26,8 +25,8 @@ class AddLogoToWebcomics extends Migration
      */
     public function down()
     {
-        Schema::table('webcomics', function (Blueprint $table) {
-            $table->dropColumn('media_id');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('last_active_at');
         });
     }
 }
