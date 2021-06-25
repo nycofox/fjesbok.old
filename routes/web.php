@@ -18,6 +18,10 @@ use Illuminate\Support\Facades\Route;
  */
 require __DIR__ . '/auth.php';
 
+Route::get('hackday', function() {
+    return 'Welcome to Hackday!';
+});
+
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
