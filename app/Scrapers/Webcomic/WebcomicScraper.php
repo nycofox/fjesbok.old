@@ -34,16 +34,20 @@ abstract class WebcomicScraper
     {
         $url = html_entity_decode($url);
 
-        if($source->baseurl) {
+        if ($source->baseurl) {
             $url = $source->baseurl . $url;
         }
 
-        $response = Http::withHeaders([
-            'Referer' => $source->searchpage ?? $source->homepage,
-        ])
-            ->get($url);
+        try {
+            $response = Http::withHeaders([
+                'Referer' => $source->searchpage ?? $source->homepage,
+            ])
+                ->get($url);
+        } catch (\Exception $e) {
+            return null;
+        }
 
-        if(!$response->successful()) {
+        if (!$response->successful()) {
             return null;
         }
 
@@ -62,7 +66,11 @@ abstract class WebcomicScraper
     {
         $path = 'webcomics/' . $source->id . '/' . Str::random(30) . '.' . basename($response->header('Content-Type'));
 
-        if(!$media = Media::storeFromString($path, $response->body())) {
+        try {
+            if (!$media = Media::storeFromString($path, $response->body())) {
+                return null;
+            }
+        } catch (\Exception $e) {
             return null;
         }
 
