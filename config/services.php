@@ -37,4 +37,9 @@ return [
         ],
     ],
 
+    'webcomics' => [
+        'key' => env('WEBCOMICS_API_KEY'),
+        'endpoint' => env('WEBCOMICS_API_ENDPOINT'),
+    ],
+
 ];
