@@ -47,12 +47,6 @@
                              -->
                     </li>
 
-                    <li class="nav-item @if(Route::is('admin.webcomics.*')) active @endif">
-                        <a class="nav-link" href="{{ route('admin.webcomics.index') }}">
-                            <i class="nav-icon fa fa-book-reader"></i>
-                            <span class="nav-text fadeable">Webcomics</span>
-                        </a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url(config('laravel-log-reader.view_route_path')) }}">
                             <i class="nav-icon fa fa-list"></i>
