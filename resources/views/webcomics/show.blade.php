@@ -11,18 +11,24 @@
         </h2>
     </x-slot>
 
-    @forelse($strips as $strip)
+    @forelse($webcomics['strips'] as $webcomic)
         <x-card>
             <div class="font-bold text-lg flex items-center">
-                @if($strip->source->webcomic->media_id)
-                    <img src="{{ $strip->source->webcomic->logoUrl }}" class="h-10">
-                @else
-                    {{ $strip->source->webcomic->name }}
-                @endif
-                <span class="ml-2 font-normal text-sm text-gray-500">by {{ $strip->source->webcomic->author }}</span>
+                {{ $webcomic[0]['source']['webcomic']['name'] }}
+                <span
+                    class="ml-2 font-normal text-sm text-gray-500">by {{ $webcomic[0]['source']['webcomic']['author'] }}</span>
             </div>
-            <div>
-                <img src="{{ $strip->media->url }}">
+            <div class="space-y-4">
+                @foreach($webcomic as $strip)
+                    <div>
+                        <img src="{{ $strip['url'] }}" class="object-fill">
+                        <div class="flex justify-between">
+                            <span class="text-xs pl-1">{{ $strip['source']['name'] }}</span>
+                            <span></span>
+                        </div>
+                    </div>
+
+                @endforeach
             </div>
         </x-card>
     @empty

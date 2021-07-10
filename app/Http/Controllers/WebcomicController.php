@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Webcomic;
-use App\Models\WebcomicStrip;
+use App\Repositories\Webcomics;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -21,31 +21,25 @@ class WebcomicController extends Controller
             abort(404);
         }
 
-        return view('webcomics.show',
-            [
-                'date' => $date,
-                'strips' => WebcomicStrip::where('date', $date->format('Y-m-d'))
-                    ->with('media')
-                    ->with('source')
-                    ->with('source.webcomic')
-                    ->get()
-                    ->sortBy(function ($q) {
-                        return $q->source->webcomic->name;
-                    })
-            ]);
-    }
+        $webcomics = Webcomics::getFromApi('strips/' . $date->format('Y-m-d'));
 
-    /**
-     * Display all available webcomics
-     *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     */
-    public function index()
-    {
-        return view('webcomics.index', [
-            'webcomics' => Webcomic::orderBy('name')->with('sources')->get(),
+        return view('webcomics.show', [
+            'webcomics' => $webcomics,
+            'date' => $date,
         ]);
     }
+
+//    /**
+//     * Display all available webcomics
+//     *
+//     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+//     */
+//    public function index()
+//    {
+//        return view('webcomics.index', [
+//            'webcomics' => Webcomic::orderBy('name')->with('sources')->get(),
+//        ]);
+//    }
 
     /**
      * Store a users preference of which webcomics to show
