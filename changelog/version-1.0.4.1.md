@@ -2,7 +2,7 @@
 
 2021-04-25
 
-New version format
+New version format.
 
 ### Minor Updates
 

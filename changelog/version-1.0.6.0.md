@@ -2,14 +2,14 @@
 
 2021-05-09
 
-New Admin Area
+New Admin Area.
 
 ### Major Updates
 
 #### Changed
 
-- New layout for the admin area, still a work in progress
+- New layout for the admin area, still a work in progress.
 
 ### Minor Updates
 
-- Added link to Webcomics in header
+- Added link to Webcomics in header.

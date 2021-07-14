@@ -6,8 +6,8 @@
 
 #### Added
 
-* Webcomics are now retrieved from external API
+* Webcomics are now retrieved from external API.
 
 #### Removed
 
-* Webcomics scraper
+* Webcomics scraper.

@@ -6,4 +6,4 @@
 
 #### Added
 
-* Link to Log Reader in Admin Area
+* Link to Log Reader in Admin Area.

@@ -2,20 +2,20 @@
 
 2021-05-02
 
-Some bugfixes
+Some bugfixes.
 
 ### Major Updates
 
 #### Added
 
-- Log Reader for Admin users
+- Log Reader for Admin users.
 
 ### Minor Updates
 
 #### Added
 
-- Now runs automated tests when pushed to GitHub
+- Now runs automated tests when pushed to GitHub.
 
 #### Fixed
 
-- Fixed a couple of bugs with Webcomics
+- Fixed a couple of bugs with Webcomics.

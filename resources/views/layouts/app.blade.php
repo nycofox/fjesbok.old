@@ -26,7 +26,7 @@
 
 </head>
 <body class="font-sans antialiased">
-<div class="min-h-screen bg-gray-100 pb-8">
+<div class="min-h-screen bg-gray-100">
 @include('layouts.navigation')
 
 <!-- Page Heading -->
@@ -52,6 +52,8 @@
 
         </div>
     </main>
+
+@include('layouts.footer')
 </div>
 
 @livewireScripts

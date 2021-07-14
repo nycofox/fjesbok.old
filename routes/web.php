@@ -22,6 +22,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     /**
+     * Pages
+     */
+    Route::get('view/{page}', [\App\Http\Controllers\PageController::class, 'show'])->name('page');
+
+    /**
      * Posts
      */
     Route::get('createpost', [\App\Http\Controllers\PostController::class, 'create'])

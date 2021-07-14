@@ -6,5 +6,5 @@
 
 #### Added
 
-* Added baseurl to Webcomic Sources
-* Certain cache variables can now be persisted through resets
+* Added baseurl to Webcomic Sources.
+* Certain cache variables can now be persisted.

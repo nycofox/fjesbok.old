@@ -7,4 +7,4 @@
 #### Added
 
 - First version soft launched!
-- __Webcomics__ are now available for select users
+- __Webcomics__ are now available for select users.
