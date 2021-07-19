@@ -23,7 +23,9 @@
                     <div>
                         <img src="{{ $strip['url'] }}" class="object-fill">
                         <div class="flex justify-between">
-                            <span class="text-xs pl-1">{{ $strip['source']['name'] }}</span>
+                            <span class="text-xs pl-1">
+                                <a href="{{ deref_url($strip['source']['homepage']) }}">{{ $strip['source']['name'] }}</a>
+                            </span>
                             <span></span>
                         </div>
                     </div>
