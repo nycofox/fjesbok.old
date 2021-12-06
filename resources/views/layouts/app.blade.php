@@ -26,7 +26,7 @@
 
 </head>
 <body class="font-sans antialiased">
-<div class="min-h-screen bg-gray-100">
+<div class="bg-gray-200">
 @include('layouts.navigation')
 
 <!-- Page Heading -->
@@ -49,7 +49,6 @@
             @include('flash::message')
 
             {{ $slot }}
-
         </div>
     </main>
 
